@@ -25,6 +25,7 @@ public class PayLine {
 	private String to;
 	private int SIZE;
 	private ArrayList<String> positions;
+	private String warrantEFT;
 	/**
 	 * hard coding the constructor for now to simplify the parsing. Doesn't
 	 * seem to be much variation on the lines.
@@ -45,11 +46,26 @@ public class PayLine {
 		rty = tokens[3];
 		salary = Double.valueOf(tokens[4]);
 		
-		posnDesc = tokens[5];
-		currToken = 5;
-		for(int i = 6; !positions.contains(tokens[i]); i++){
+		if((tokens[5] + tokens[6]).equals("LTSUB")){
+			posnDesc = (tokens[5] + " " + tokens[6]);
+			currToken = 6;
+		} else {
+			posnDesc = "";
+			currToken = 5;
+		}
+		
+		for(int i = currToken; !positions.contains(tokens[i]); i++){
+			if((tokens[i] + tokens[i+1]).equals("LTSUB")){
+				posnDesc = (posnDesc + " " + (tokens[i] + " " + tokens[i+1])).trim();
+				i++;
+			} else {
 			posnDesc = (posnDesc + " " + tokens[i]).trim();
 			currToken = i;
+			}
+		}
+		
+		if(posnDesc.equals("")){
+			posnDesc = tokens[5];
 		}
 		
 		currToken++;
@@ -120,7 +136,15 @@ public class PayLine {
 		return st + ", " + units + ", " + rate + ", " + rty + ", " + salary  + ", " 
 				+ posnDesc + ", " + earn + ", " + txty + ", " + pty
 				 + ", " + fq + ", " + tx + ", " + hw + ", " + rb + ", " + rc 
-				 + ", " + rt + ", " + from + ", " + to; 
+				 + ", " + rt + ", " + from + ", " + to + ", " + warrantEFT + "\n"; 
 	}
 	
+	
+	public String getWarrantEFT(){
+		return warrantEFT;
+	}
+	
+	public void setWarrantEFT(String warrantEFT){
+		this.warrantEFT = warrantEFT;
+	}
 }

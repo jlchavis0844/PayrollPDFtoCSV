@@ -191,7 +191,7 @@ public class Person {
 			currToken++;
 		} else {
 			System.err.println("Couldn't find P, using \"\"");
-			warrantEFT = "";
+			p = "";
 		}
 
 		//System.out.println(this);
@@ -211,6 +211,10 @@ public class Person {
 
 	public ArrayList<PayLine> getPayLines(){
 		return payLines;
+	}
+	
+	public String getWarrantEFT(){
+		return warrantEFT;
 	}
 	
 	public boolean isNumeric(String s) {  
