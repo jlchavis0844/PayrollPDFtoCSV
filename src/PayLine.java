@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class PayLine {
 	private String st;
-	private String percent;
+//	private String percent;
 	private double units;
 	private double rate;
 	private String rty;
@@ -11,10 +11,10 @@ public class PayLine {
 	private String earn;
 	private String txty;
 	private String pty;
-	private String sched;
-	private String range;
-	private String step;
-	private String cd;
+//	private String sched;
+//	private String range;
+//	private String step;
+//	private String cd;
 	private String fq;
 	private String tx;
 	private String hw;
@@ -89,11 +89,11 @@ public class PayLine {
 		}
 		
 		if (currToken < SIZE && tokens[currToken].length() == 8){
-			from = tokens[currToken];
+			from = tokens[currToken++];
 		}
 		
 		if (currToken < SIZE && tokens[currToken].length() == 8){
-			to = tokens[currToken];
+			to = tokens[currToken++];
 		}
 		
 		

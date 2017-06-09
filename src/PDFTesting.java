@@ -1,18 +1,13 @@
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import org.apache.pdfbox.cos.COSDocument;
-import org.apache.pdfbox.io.RandomAccessRead;
-import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 
@@ -22,7 +17,6 @@ public class PDFTesting {
 		// TODO Auto-generated method stub
 		PDFTextStripper pdfStripper = null;
 		PDDocument pdDoc = null;
-		COSDocument cosDoc = null;
 		String filePath = "H:\\Documents\\test.pdf";
 		JFileChooser chooser = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(
@@ -97,7 +91,7 @@ public class PDFTesting {
 			
 			BufferedWriter csvBioOut = new BufferedWriter(new FileWriter(savePath +"outBioFile.csv"));
 			BufferedWriter csvPayOut = new BufferedWriter(new FileWriter(savePath +"outPayFile.csv"));
-			String bioHeader = "first, last, mi, empClass, pay, locn, fit, sit, fm, dn, retSys, retOpt, warrantEFT, p";
+			String bioHeader = "last, first, mi, empClass, pay, locn, fit, sit, fm, dn, retSys, retOpt, warrantEFT, p";
 			String payHeader = "st, units, rate, rty, salary, posnDesc, earn, txty, pty, "
 					+ "fq, tx, hw, rb, rc, rt, from, to, warrantEFT";
 			csvBioOut.write(bioHeader + "\n");

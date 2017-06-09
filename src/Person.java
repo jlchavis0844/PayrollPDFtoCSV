@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-import javax.swing.text.Position;
-
 public class Person {
 
 	private String first;
@@ -65,45 +63,7 @@ public class Person {
 		empClass = tokens[classNum] + " " + tokens[classNum+1]; 
 		
 		currToken = classNum + 2;
-//		if(currToken < SIZE && tokens[currToken].contains(",")){
-//			last = tokens[currToken].replaceAll(",", "").trim();
-//			currToken++;
-//		} else {
-//			System.err.println("no comma in last name, setting null");
-//			last = "NULL";
-//		}
-//
-//		if(currToken < SIZE && tokens[currToken].length() > 2){
-//			first = tokens[currToken].trim();
-//			currToken++;			
-//		} else {
-//			System.err.println("First name not found, setting null");
-//			first = "NULL";
-//		}
-//
-//		if(currToken < SIZE && tokens[currToken].length() == 1){
-//			mi = tokens[currToken].trim();
-//			currToken++;
-//		} else {
-//			mi = "";
-//		}
-//
-//		int loops = 0;
-//		int start = currToken;
-//		empClass = "";
-//		
-//		while(currToken < SIZE && !payCodes.contains((tokens[currToken])) && loops < 10){
-//			empClass += (" " + tokens[currToken]);
-//			currToken++;
-//			loops++;
-//		}
-		
-//		
-//		if(loops >= 9){//something went wrong if true, reset token
-//			currToken = start;//reset
-//		}
-//
-//		
+	
 		if(currToken < SIZE && payCodes.contains((tokens[currToken]))){
 			pay = tokens[currToken];
 			currToken++;
@@ -198,7 +158,6 @@ public class Person {
 	}
 	
 	public String toString(){
-		String header = "first, last, mi, empClass, pay, locn, fit, sit, fm, dn, retSys, retOpt, warrantEFT, p";
 		String info = last + "," +first + "," +mi + "," +empClass 
 				+ "," +pay + "," +locn + "," +fit + "," +sit + "," 
 				+fm + "," +dn + "," +retSys + "," +retOpt + "," +warrantEFT 
